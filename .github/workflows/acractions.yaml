@@ -29,5 +29,5 @@ jobs:
         uses: docker/build-push-action@v2  # Build and push the Docker image to ACR.
         with:
           push: true  # Push the image to ACR after building.
-          tags: ${{ secrets.AZURE_URL }}/${{ github.repository }}:${{ github.sha }}  # Use commit SHA for image tag.
+          tags: ${{ secrets.AZURE_URL }}/${{ github.repository | toLowerCase }}:${{ github.sha }}  # Use lowercase repo name and commit SHA for image tag.
           file: Dockerfile  # Path to the Dockerfile in the repository.
